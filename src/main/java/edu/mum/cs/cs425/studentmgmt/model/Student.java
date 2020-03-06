@@ -44,6 +44,9 @@ public class Student {
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Classroom classRoom;
+	
+	
+	//Default constructor
 	public Student() {
 		
 	}
@@ -57,6 +60,21 @@ public class Student {
 		this.lastName = lastName;
 		this.cgpa = cgpa;
 		this.dateOfEnrollment = dateOfEnrollment;
+	}
+	
+	public void addTranscript(Transcript t) {
+		t.setStudent(this);
+	}
+	
+	public void addClassRoom(Classroom clr) {
+		clr.addStudent(this);
+	}
+	public Transcript getTranscript() {
+		return transcript;
+	}
+
+	public void setTranscript(Transcript transcript) {
+		this.transcript = transcript;
 	}
 
 	public Long getStudentId() {
@@ -113,6 +131,14 @@ public class Student {
 
 	public void setDateOfEnrollment(LocalDate dateOfEnrollment) {
 		this.dateOfEnrollment = dateOfEnrollment;
+	}
+	
+	public Classroom getClassRoom() {
+		return classRoom;
+	}
+
+	public void setClassRoom(Classroom classRoom) {
+		this.classRoom = classRoom;
 	}
 
 	@Override

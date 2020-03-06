@@ -20,13 +20,20 @@ public class Classroom {
 	private Integer roomNumber;
 	@OneToMany(cascade = CascadeType.PERSIST,mappedBy = "classRoom")
 	private List<Student> students = new ArrayList<Student>();
+	
+	//no argument constructor
 	public Classroom() {
 		
 	}
+	
 public Classroom(String buildingName, Integer roomNumber) {
 	
 	this.buildingName = buildingName;
 	this.roomNumber = roomNumber;
+}
+
+public void addStudent(Student st) {
+	students.add(st);
 }
 public Long getClassroomId() {
 	return classroomId;
@@ -46,10 +53,12 @@ public Integer getRoomNumber() {
 public void setRoomNumber(Integer roomNumber) {
 	this.roomNumber = roomNumber;
 }
-	
-	
-	
-	
+public List<Student> getStudents() {
+	return students;
+}
+public void setStudents(List<Student> students) {
+	this.students = students;
+}
 	
 	
 }

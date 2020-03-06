@@ -20,10 +20,14 @@ public class Transcript {
 	public Transcript() {
 		
 	}
-	public Transcript(String degreeTitle, Student student) {
+	public Transcript(String degreeTitle) {
 		
 		this.degreeTitle = degreeTitle;
-		this.student = student;
+		
+	}
+	
+	public void addStudent(Student s) {
+		s.setTranscript(this);
 	}
 	public Long getTranscriptId() {
 		return transcriptId;
